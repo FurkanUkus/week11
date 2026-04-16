@@ -1,6 +1,9 @@
 name: CI Pipeline
 on: [push, pull_request]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Node.js uyarısını çözer
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -12,8 +15,11 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install pytest flake8 pytest-cov
       - name: Lint with flake8
-        run: flake8 .
+        run: |
+          # Önemli: Stil hataları için testi durdurur [cite: 114, 136]
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
       - name: Run tests
-        run: pytest
+        run: |
+          pytest
