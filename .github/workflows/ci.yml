@@ -33,5 +33,5 @@ jobs:
       - name: Deploy to Railway
         uses: bervProject/railway-deploy@main
         with:
-          railway_token: ${{ secrets.RAILWAY_TOKEN }} 
+          railway_api_key: ${{ secrets.RAILWAY_TOKEN }} 
           service: "dnf-squad-cart" 
