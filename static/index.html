@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart System - CD Deployment</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
+        .success { color: green; font-weight: bold; }
+        
+        /* İstediğin kutu tasarımı için eklenen CSS */
+        .note-box {
+            background-color: #e0f7fa; /* Kutunun iç açık mavi rengi [cite: 30] */
+            border-left: 5px solid #00bcd4; /* Sol taraftaki kalın dikey çizgi [cite: 62] */
+            padding: 15px 20px; /* İç boşluk [cite: 34] */
+            margin-top: 20px; /* Üst boşluk [cite: 36] */
+            font-weight: bold;
+            color: #000;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project Name: Shopping Cart System</h1>
+    <p><strong>Team Name:</strong> DNF Squad</p> 
+    
+    <h3>Functions Covered by Test Suite:</h3> 
+    <ul>
+        <li><code>add_item</code>: Function to add a product to the cart.</li>
+        <li><code>remove_item</code>: Function to remove a product from the cart.</li>
+        <li><code>get_total_price</code>: Function to calculate the total price.</li>
+    </ul>
+
+    <div class="note-box">
+        Note: This page was deployed automatically via CD pipeline.
+    </div> 
+</body>
+</html>
