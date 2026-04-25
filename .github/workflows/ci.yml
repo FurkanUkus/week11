@@ -24,14 +24,16 @@ jobs:
           pytest
 
   deploy:
-    needs: test 
+    needs: test
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
       - name: Deploy to Railway
-        uses: bervProject/railway-deploy@main
-        with:
-          railway_api_key: ${{ secrets.RAILWAY_TOKEN }} 
-          service: "dnf-squad-cart" 
+        run: railway up --service "dnf-squad-cart"
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
